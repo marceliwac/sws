@@ -11,6 +11,98 @@
 	<script src="https://unpkg.com/vue@3.2.34/dist/vue.global.js"></script>
 	<link rel="stylesheet" href="./main.css">
 </style>
+	<style>
+		#examples {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		#examples > h1 {
+			font-size: 2em;
+		}
+
+		.exampleCard {
+			display: flex;
+			flex-direction: column;
+			padding: 1em;
+			margin: 1em 0;
+			background-color: #fafafa;
+			border: 1px solid #ccc;
+			border-radius: .25em;
+		}
+
+		.exampleCard .exampleHeader {
+			display: flex;
+			height: 2.5em;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			padding-bottom: .75em;
+			margin-bottom: .75em;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.exampleCard .exampleHeader h2 {
+			height: 1.25em;
+			font-size: 1.25em;
+		}
+
+		.exampleCard .exampleHeader button:disabled {
+			background-color: #1C3146 !important;
+		}
+
+		.exampleCard .line {
+			width: 100%;
+			margin: .25em 0;
+			height: 2em;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: start;
+		}
+
+		.exampleCard .line h3 {
+			font-size: 1em;
+			text-decoration: underline;
+			font-weight: normal;
+			width: 15%;
+		}
+
+		.exampleCard .line p {
+			height: auto;
+		}
+
+		.exampleCard .exampleResponse .exampleResponseInner {
+			padding: 1em;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			display: flex;
+			flex-direction: column;
+			margin: 1em 0;
+		}
+
+		.exampleCard .exampleResponse h4{
+			margin: .5em 0;
+			text-decoration: underline;
+		}
+
+		.exampleCard .exampleResponse code {
+			margin-left: 1em;
+			margin-top: .5em;
+		}
+
+		.exampleCard .exampleResponse .line{
+			height: 1em;
+			margin: .5em 0;
+		}
+
+		.exampleCard .exampleResponse .line h3{
+			text-decoration: none;
+			height: 1em;
+
+		}
+	</style>
 </head>
 <body>
 	<div id="app">
@@ -92,6 +184,101 @@
 					</button>
 				</div>
 				<hr/>
+			<section id="examples">
+				<h1>Example querries</h1>
+				<div class="exampleCard">
+					<div class="exampleHeader">
+						<h2>Synanetics careers</h2>
+						<button id='e1but' onclick="runExample('e1res', 'e1but', 'https://synanetics.com/careers')">Try</button>
+					</div>
+					<div class="line">
+						<h3>Address:</h3>
+						<p>https://synanetics.com/careers</p>
+					</div>
+					<div class="line">
+						<h3>Mode:</h3>
+						<p class="none">(none)</p>
+					</div>
+					<div class="line">
+						<h3>Key:</h3>
+						<p class="none">(none)</p>
+					</div>
+					<div class="line">
+						<h3>Strategy:</h3>
+						<p class="none">(none)</p>
+					</div>
+					<div class="exampleResponse" id="e1res"></div>
+				</div>
+				<div class="exampleCard">
+					<div class="exampleHeader">
+						<h2>Synanetics Rob's description</h2>
+						<button id='e2but' onclick="runExample('e2res', 'e2but', 'https://synanetics.com/careers', null, '.fusion-text-7', 'FIRST')">Try</button>
+					</div>
+					<div class="line">
+						<h3>Address:</h3>
+						<p>https://synanetics.com/careers</p>
+					</div>
+					<div class="line">
+						<h3>Mode:</h3>
+						<p class="none">(none)</p>
+					</div>
+					<div class="line">
+						<h3>Key:</h3>
+						<p>.fusion-text-7</p>
+					</div>
+					<div class="line">
+						<h3>Strategy:</h3>
+						<p>FIRST</p>
+					</div>
+					<div class="exampleResponse" id="e2res"></div>
+				</div>
+				<div class="exampleCard">
+					<div class="exampleHeader">
+						<h2>Twitter (<a href="https://twitter.com/MarceliWac/status/1651139027284770821">tweet about Synanetics</a>)</h2>
+						<button id='e3but' onclick="runExample('e3res', 'e3but', 'https://twitter.com/MarceliWac/status/1651139027284770821', 'RAW', 'div[data-testid=\'tweetText\']', 'FIRST')">Try</button>
+					</div>
+					<div class="line">
+						<h3>Address:</h3>
+						<p>https://synanetics.com/careers</p>
+					</div>
+					<div class="line">
+						<h3>Mode:</h3>
+						<p>RAW</p>
+					</div>
+					<div class="line">
+						<h3>Key:</h3>
+						<p>div[data-testid="tweetText"]</p>
+					</div>
+					<div class="line">
+						<h3>Strategy:</h3>
+						<p>FIRST</p>
+					</div>
+					<div class="exampleResponse" id="e3res"></div>
+				</div>
+				<div class="exampleCard">
+					<div class="exampleHeader">
+						<h2>Twitter (<a href="https://twitter.com/MarceliWac/status/1651139027284770821">tweet about Synanetics</a>)</h2>
+						<button id='e4but' onclick="runExample('e4res', 'e4but', 'https://twitter.com/MarceliWac/status/1651139027284770821', 'BROWSER', 'div[data-testid=\'tweetText\']', 'FIRST')">Try</button>
+					</div>
+					<div class="line">
+						<h3>Address:</h3>
+						<p>https://synanetics.com/careers</p>
+					</div>
+					<div class="line">
+						<h3>Mode:</h3>
+						<p>BROWSER</p>
+					</div>
+					<div class="line">
+						<h3>Key:</h3>
+						<p>div[data-testid="tweetText"]</p>
+					</div>
+					<div class="line">
+						<h3>Strategy:</h3>
+						<p>FIRST</p>
+					</div>
+					<div class="exampleResponse" id="e4res"></div>
+				</div>
+			</section>
 			<template v-for="(section, name) in filteredApis" :key="name">
 				<section v-if="section && section.length>0" :id="name">
 					<fieldset>
@@ -289,6 +476,48 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function runExample(responseId, buttonId, address, mode, key, strategy) {
+			document.getElementById(buttonId).innerText = 'Trying...';
+			document.getElementById(buttonId).disabled = true;
+			let startTime = Date.now();
+			let response = '<h4>Response</h4>';
+			let params = `?address=${address}`
+			if(mode) {
+				params = params + `&mode=${mode}`
+			}
+			if(key) {
+				params = params + `&key=${key}`
+			}
+			if(strategy) {
+				params = params + `&strategy=${strategy}`
+			}
+			fetch(`/api/swsapi/wordCount${params}`, {
+				method: 'GET',
+				body: null,
+				headers: {
+					'Content-Type': 'application/json',
+				}
+			}).then(async function(res) {
+				let duration = Date.now() - startTime;
+				const body = await res.json();
+				const spacer = '<<SPACER>>';
+				duration = duration > 1000 ? `${(duration/1000).toFixed(2)}s` : `${duration}ms`
+				response += `<div class="line"><h3>Status:</h3><p>${res.status}</p></div>`;
+				response += `<div class="line"><h3>Duration:</h3><p>${duration}</p></div>`;
+				response += `<div class="line"><h3>Body:</h3></div>`;
+				response += `<code>${JSON.stringify(body, null, spacer).replaceAll(spacer, '<span style="padding: 1em;"></span>').replaceAll('\n', '<br/>')}</code>`
+			}).catch(function (err) {
+				response += `<div class="line"><h3>Status:</h3><p>${res.status}</p></div>`;
+				response += `<div class="line"><h3>Duration:</h3><p>${duration}</p></div>`;
+				response += `<div class="line"><h3>Error:</h3><p>${err.message}</p></div>`;
+			}).finally(function () {
+				document.getElementById(responseId).innerHTML = `<div class="exampleResponseInner">${response}</div>`;
+				document.getElementById(buttonId).innerText = 'Try';
+				document.getElementById(buttonId).disabled = false;
+			});
+		}
+	</script>
 	<script type="text/javascript">
 		const { createApp } = Vue
 		const app = createApp({
