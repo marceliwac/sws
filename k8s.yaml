@@ -89,24 +89,24 @@ spec:
 
 ---
 #########################################################
-# Greeter service
+# SWS API service
 #########################################################
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: greeter
+  name: swsapi
 spec:
   selector:
     matchLabels:
-      app: greeter
+      app: swsapi
   replicas: 2
   template:
     metadata:
       labels:
-        app: greeter
+        app: swsapi
     spec:
       containers:
-      - name: greeter
+      - name: swsapi
         image: sws
         imagePullPolicy: IfNotPresent
         envFrom:
@@ -114,7 +114,7 @@ spec:
             name: common-env
         env:
           - name: SERVICES
-            value: greeter
+            value: swsapi
 
 
 ---

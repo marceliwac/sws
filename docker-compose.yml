@@ -19,13 +19,13 @@ services:
     networks:
       - internal
 
-  greeter:
+  swsapi:
     build:
       context: .
     image: sws
     env_file: docker-compose.env
     environment:
-      SERVICES: greeter
+      SERVICES: swsapi
     depends_on:
       - nats
     networks:
