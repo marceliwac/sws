@@ -1,14 +1,12 @@
 {
   "name": "sws",
   "version": "1.0.0",
-  "description": "Synanetics (or Simple) Web Scraper",
+  "description": "Word counter",
   "scripts": {
     "dev": "moleculer-runner --repl --hot services/**/*.service.js",
-    "start": "moleculer-runner",
-    "cli": "moleculer connect NATS",
-    "ci": "jest --watch",
-    "test": "jest --coverage",
-    "lint": "eslint services",
+    "start": "moleculer-runner services",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "dc:up": "docker-compose up --build -d",
     "dc:logs": "docker-compose logs -f",
     "dc:down": "docker-compose down"

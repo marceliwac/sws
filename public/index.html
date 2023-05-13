@@ -185,7 +185,7 @@
 				</div>
 				<hr/>
 			<section id="examples">
-				<h1>Example querries</h1>
+				<h1>Example queries</h1>
 				<div class="exampleCard">
 					<div class="exampleHeader">
 						<h2>Synanetics careers</h2>
@@ -193,7 +193,7 @@
 					</div>
 					<div class="line">
 						<h3>Address:</h3>
-						<p>https://synanetics.com/careers</p>
+						<p><a href="https://synanetics.com/careers">https://synanetics.com/careers</a></p>
 					</div>
 					<div class="line">
 						<h3>Mode:</h3>
@@ -216,7 +216,7 @@
 					</div>
 					<div class="line">
 						<h3>Address:</h3>
-						<p>https://synanetics.com/careers</p>
+						<p><a href="https://synanetics.com/careers">https://synanetics.com/careers</a></p>
 					</div>
 					<div class="line">
 						<h3>Mode:</h3>
@@ -234,12 +234,13 @@
 				</div>
 				<div class="exampleCard">
 					<div class="exampleHeader">
-						<h2>Twitter (<a href="https://twitter.com/MarceliWac/status/1651139027284770821">tweet about Synanetics</a>)</h2>
-						<button id='e3but' onclick="runExample('e3res', 'e3but', 'https://twitter.com/MarceliWac/status/1651139027284770821', 'RAW', 'div[data-testid=\'tweetText\']', 'FIRST')">Try</button>
+						<h2>Twitter (<a href="https://twitter.com/MarceliWac/status/1657319986057076736">tweet</a>)</h2>
+						<button id='e3but' onclick="runExample('e3res', 'e3but', 'https://twitter.com/MarceliWac/status/1657319986057076736', 'RAW', 'div[data-testid=\'tweetText\']', 'FIRST')">Try</button>
 					</div>
+					<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This tweet has 5 words.</p>&mdash; Dr Googly Bear (@MarceliWac) <a href="https://twitter.com/MarceliWac/status/1657319986057076736?ref_src=twsrc%5Etfw">May 13, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					<div class="line">
 						<h3>Address:</h3>
-						<p>https://synanetics.com/careers</p>
+						<p><a href="https://twitter.com/MarceliWac/status/1657319986057076736">https://twitter.com/MarceliWac/status/1657319986057076736</a></p>
 					</div>
 					<div class="line">
 						<h3>Mode:</h3>
@@ -257,12 +258,13 @@
 				</div>
 				<div class="exampleCard">
 					<div class="exampleHeader">
-						<h2>Twitter (<a href="https://twitter.com/MarceliWac/status/1651139027284770821">tweet about Synanetics</a>)</h2>
-						<button id='e4but' onclick="runExample('e4res', 'e4but', 'https://twitter.com/MarceliWac/status/1651139027284770821', 'BROWSER', 'div[data-testid=\'tweetText\']', 'FIRST')">Try</button>
+						<h2>Twitter (<a href="https://twitter.com/MarceliWac/status/1657319986057076736">tweet</a>)</h2>
+						<button id='e4but' onclick="runExample('e4res', 'e4but', 'https://twitter.com/MarceliWac/status/1657319986057076736', 'BROWSER', 'div[data-testid=\'tweetText\']', 'FIRST')">Try</button>
 					</div>
+					<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This tweet has 5 words.</p>&mdash; Dr Googly Bear (@MarceliWac) <a href="https://twitter.com/MarceliWac/status/1657319986057076736?ref_src=twsrc%5Etfw">May 13, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					<div class="line">
 						<h3>Address:</h3>
-						<p>https://synanetics.com/careers</p>
+						<p><a href="https://twitter.com/MarceliWac/status/1657319986057076736">https://twitter.com/MarceliWac/status/1657319986057076736</a></p>
 					</div>
 					<div class="line">
 						<h3>Mode:</h3>
@@ -503,14 +505,18 @@
 				const body = await res.json();
 				const spacer = '<<SPACER>>';
 				duration = duration > 1000 ? `${(duration/1000).toFixed(2)}s` : `${duration}ms`
-				response += `<div class="line"><h3>Status:</h3><p>${res.status}</p></div>`;
-				response += `<div class="line"><h3>Duration:</h3><p>${duration}</p></div>`;
-				response += `<div class="line"><h3>Body:</h3></div>`;
-				response += `<code>${JSON.stringify(body, null, spacer).replaceAll(spacer, '<span style="padding: 1em;"></span>').replaceAll('\n', '<br/>')}</code>`
+				response += `
+					<div class="line"><h3>Status:</h3><p>${res.status}</p></div>
+					<div class="line"><h3>Duration:</h3><p>${duration}</p></div>
+					<div class="line"><h3>Body:</h3></div>
+					<code>${JSON.stringify(body, null, spacer).replaceAll(spacer, '<span style="padding: 1em;"></span>').replaceAll('\n', '<br/>')}</code>
+				`;
 			}).catch(function (err) {
-				response += `<div class="line"><h3>Status:</h3><p>${res.status}</p></div>`;
-				response += `<div class="line"><h3>Duration:</h3><p>${duration}</p></div>`;
-				response += `<div class="line"><h3>Error:</h3><p>${err.message}</p></div>`;
+				response += `
+					<div class="line"><h3>Status:</h3><p>${res.status}</p></div>
+					<div class="line"><h3>Duration:</h3><p>${duration}</p></div>
+					<div class="line"><h3>Error:</h3><p>${err.message}</p></div>
+				`;
 			}).finally(function () {
 				document.getElementById(responseId).innerHTML = `<div class="exampleResponseInner">${response}</div>`;
 				document.getElementById(buttonId).innerText = 'Try';

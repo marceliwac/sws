@@ -31,6 +31,18 @@ services:
     networks:
       - internal
 
+  scraper:
+    build:
+      context: .
+    image: sws
+    env_file: docker-compose.env
+    environment:
+      SERVICES: scraper
+    depends_on:
+      - nats
+    networks:
+      - internal
+
   nats:
     image: nats:2
     networks:
